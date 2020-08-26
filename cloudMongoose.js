@@ -1,8 +1,6 @@
 
 let cloudMongoose = require("mongoose");
-
-let mongodbConnectionString = "mongodb+srv://rashik:1234!@#$@cluster0.wn9kw.mongodb.net/<dbname>?retryWrites=true&w=majority";
-
+let mongodbConnectionString = "mongodb+srv://rashik:JMu9PlZIFo1226OW@cluster0.wn9kw.mongodb.net/contact?retryWrites=true&w=majority";
 
 cloudMongoose
     .connect(mongodbConnectionString, {

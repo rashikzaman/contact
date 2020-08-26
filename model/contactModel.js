@@ -5,54 +5,39 @@ const contactModel = (() => {
 
     const Contact = cloudMongoose.model("Contact", contactSchema)
 
-    const addContact = (contact) => {
-        const contact = new Contact({ ...contact })
-        try {
-            const result = await contact.save()
-            return result
-        } catch (e) {
-            console.log(e.message)
-        }
+    const addContact = async (data) => {
+        const contact = new Contact({ ...data })
+        const result = await contact.save()
+        return result
     }
 
-    const getContact = (mobileNumber) => {
-        try {
-            const result = await Contact.findOne({ mobile_number: mobileNumber })
-            return result
-        } catch (e) {
-            console.log(e.message)
-        }
+    const getContact = async (mobileNumber) => {
+
+        const result = await Contact.findOne({ mobile_number: mobileNumber })
+        return result
     }
 
-    const getContacts = (option) => {
-        try {
-            const result = await Contact.find(option)
-            return result
-        } catch (e) {
-            console.log(e.message)
-        }
+    const getContacts = async (option) => {
+
+        const result = await Contact.find(option)
+        return result
+
     }
 
-    const editContact = (mobileNumber, contact) => {
-        try {
-            const result = await Contact.findOneAndUpdate(
-                { mobile_number: mobileNumber },
-                contact,
-                { new: true, upsert: true })
+    const editContact = async (mobileNumber, contact) => {
 
-            return result
-        } catch (e) {
-            console.log(e.message)
-        }
+        const result = await Contact.findOneAndUpdate(
+            { mobile_number: mobileNumber },
+            contact,
+            { new: true, upsert: true })
+
+        return result
+
     }
 
-    const deleteContact = (mobileNumber) => {
-        try {
-            await Contact.findOneAndRemove({ mobile_number: mobileNumber })
-            return true
-        } catch (e) {
-            console.log(e.message)
-        }
+    const deleteContact = async (mobileNumber) => {
+        await Contact.findOneAndRemove({ mobile_number: mobileNumber })
+        return true
     }
 
     return {
