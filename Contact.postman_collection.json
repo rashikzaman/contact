@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "a1797da3-b3a7-47e1-888b-f4da34dd5d6c",
+		"name": "Contact",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "wer",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "+8801795223011",
+							"description": "Note: must prefixed by +88",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get single contact",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "wer",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "+8801795223075",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/contacts/+8801795223075",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts",
+						"+8801795223075"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "wer",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "+8801795223070",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/contacts/+8801795223072",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts",
+						"+8801795223072"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit contact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "wer",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "+8801795223070",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/contacts/+8801795223075",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts",
+						"+8801795223075"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
