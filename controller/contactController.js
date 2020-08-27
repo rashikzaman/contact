@@ -59,6 +59,12 @@ const contactController = (() => {
     const validateInput = (data) => {
         if (!data.name || !data.mobile_number)
             throw new BadRequest("Input field is missing: name or mobile_number")
+        const mobileNumber = data.mobile_number
+        const numbers = /^[0-9]+$/;
+        const numberPrefix = mobileNumber.slice(0, 4)
+        const numberPostfix = mobileNumber.slice(1, mobileNumber.length)
+        if (numberPrefix !== '+880' || !numberPostfix.match(numbers) || mobileNumber.length !== 14)
+            throw new BadRequest("Please provide a valid BD mobile number")
     }
 
     return {

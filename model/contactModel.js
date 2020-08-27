@@ -29,7 +29,10 @@ const contactModel = (() => {
         const result = await Contact.findOneAndUpdate(
             { mobile_number: mobileNumber },
             contact,
-            { new: true, upsert: true })
+            {
+                new: true,               
+                upsert: true            //will create new contact if not found 
+            })
 
         return result
 
